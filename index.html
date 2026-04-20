@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cnresell775 — Optimisation PC</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(180deg, #12122a 0%, #0a0a0f 100%);
+      border-bottom: 1px solid #1e1e3a;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #7c3aed, #a855f7, #7c3aed);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    header p {
+      margin-top: 12px;
+      color: #888;
+      font-size: 1.1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 16px;
+      background: #1e1e3a;
+      border: 1px solid #7c3aed44;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.85rem;
+      color: #a855f7;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 60px 0 30px;
+      color: #fff;
+    }
+
+    /* FEATURES */
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 0 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: #12122a;
+      border: 1px solid #1e1e3a;
+      border-radius: 12px;
+      padding: 24px 28px;
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover { border-color: #7c3aed; }
+
+    .feature-card .icon { font-size: 2rem; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 1rem; color: #fff; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.85rem; color: #777; line-height: 1.5; }
+
+    /* PRICING */
+    .pricing {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 0 20px;
+      max-width: 1000px;
+      margin: 0 auto 80px;
+    }
+
+    .plan {
+      background: #12122a;
+      border: 1px solid #1e1e3a;
+      border-radius: 16px;
+      padding: 32px 28px;
+      flex: 1;
+      min-width: 200px;
+      max-width: 220px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+      position: relative;
+    }
+
+    .plan:hover {
+      transform: translateY(-4px);
+      border-color: #7c3aed;
+    }
+
+    .plan.popular {
+      border-color: #7c3aed;
+      background: #15153a;
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #7c3aed;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-size: 0.9rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .plan-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .plan-price span {
+      font-size: 1rem;
+      color: #888;
+      font-weight: 400;
+    }
+
+    .plan ul {
+      list-style: none;
+      margin: 20px 0 24px;
+      text-align: left;
+    }
+
+    .plan ul li {
+      font-size: 0.85rem;
+      color: #aaa;
+      padding: 5px 0;
+    }
+
+    .plan ul li::before {
+      content: "✓ ";
+      color: #7c3aed;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #7c3aed;
+      color: #fff;
+      padding: 11px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+      width: 100%;
+    }
+
+    .btn:hover { background: #6d28d9; }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #7c3aed;
+      color: #a855f7;
+    }
+
+    .btn-outline:hover { background: #7c3aed22; }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #0a0a0f 0%, #12122a 100%);
+      border-top: 1px solid #1e1e3a;
+    }
+
+    .cta h2 { font-size: 1.8rem; color: #fff; margin-bottom: 12px; }
+    .cta p { color: #888; margin-bottom: 28px; }
+
+    .discord-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #5865f2;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .discord-btn:hover { background: #4752c4; transform: scale(1.04); }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #444;
+      font-size: 0.8rem;
+      border-top: 1px solid #1a1a2e;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>cnresell775</h1>
+    <p>Optimisation PC professionnelle — résultats garantis</p>
+    <span class="badge">⚡ Service rapide &nbsp;·&nbsp; Support Discord</span>
+  </header>
+
+  <h2 class="section-title">Ce qui est inclus</h2>
+  <div class="features">
+    <div class="feature-card">
+      <div class="icon">🚀</div>
+      <h3>Boost FPS</h3>
+      <p>Optimisation complète pour maximiser tes FPS en jeu.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🧹</div>
+      <h3>Nettoyage système</h3>
+      <p>Suppression des fichiers inutiles, services, et bloatware.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🌐</div>
+      <h3>Réseau optimisé</h3>
+      <p>Réduction du ping et de la latence pour le gaming.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🛡️</div>
+      <h3>Stabilité</h3>
+      <p>PC plus stable, moins de freezes et de crashes.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Tarifs</h2>
+  <div class="pricing">
+
+    <div class="plan">
+      <div class="plan-name">Basic</div>
+      <div class="plan-price">4,99€ <span>/ 1 jour</span></div>
+      <ul>
+        <li>Optimisation rapide</li>
+        <li>Boost FPS</li>
+        <li>Support 24h</li>
+      </ul>
+      <a href="https://discord.gg/VmaszVq6" class="btn btn-outline" target="_blank">Commander</a>
+    </div>
+
+    <div class="plan">
+      <div class="plan-name">Semaine</div>
+      <div class="plan-price">9,99€ <span>/ 7 jours</span></div>
+      <ul>
+        <li>Optimisation complète</li>
+        <li>Boost FPS + réseau</li>
+        <li>Support 7 jours</li>
+      </ul>
+      <a href="https://discord.gg/VmaszVq6" class="btn btn-outline" target="_blank">Commander</a>
+    </div>
+
+    <div class="plan popular">
+      <div class="popular-badge">⭐ Populaire</div>
+      <div class="plan-name">Mensuel</div>
+      <div class="plan-price">19,99€ <span>/ mois</span></div>
+      <ul>
+        <li>Tout inclus</li>
+        <li>Nettoyage + stabilité</li>
+        <li>Support prioritaire</li>
+        <li>Mises à jour incluses</li>
+      </ul>
+      <a href="https://discord.gg/VmaszVq6" class="btn" target="_blank">Commander</a>
+    </div>
+
+    <div class="plan">
+      <div class="plan-name">Lifetime</div>
+      <div class="plan-price">49,99€ <span>/ à vie</span></div>
+      <ul>
+        <li>Accès permanent</li>
+        <li>Toutes les options</li>
+        <li>Support à vie</li>
+        <li>Futures mises à jour</li>
+      </ul>
+      <a href="https://discord.gg/VmaszVq6" class="btn btn-outline" target="_blank">Commander</a>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h2>Prêt à booster ton PC ?</h2>
+    <p>Rejoins le Discord et ouvre un ticket pour commander.</p>
+    <a href="https://discord.gg/VmaszVq6" class="discord-btn" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+      Rejoindre le Discord
+    </a>
+  </div>
+
+  <footer>
+    © 2026 cnresell775 — Tous droits réservés
+  </footer>
+
+</body>
+</html>
